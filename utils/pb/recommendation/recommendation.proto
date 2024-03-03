@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package recommendation;
+
+service RecommendationService {
+    rpc GetRecommendations (RecommendationRequest) returns (RecommendationResponse);
+}
+
+message RecommendationRequest {
+    string userName =1;
+    string itemName =2;
+}
+
+message RecommendationResponse {
+    repeated RecommendationItem recommendations = 1;
+}
+
+message RecommendationItem {
+    string itemId = 1;
+    string itemName = 2;
+}
