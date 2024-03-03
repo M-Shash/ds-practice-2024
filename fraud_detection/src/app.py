@@ -15,15 +15,15 @@ from concurrent import futures
 
 # Create a class to define the server functions, derived from
 # fraud_detection_pb2_grpc.HelloServiceServicer
-class HelloService(fraud_detection_grpc.HelloServiceServicer):
+class fraud_detection(fraud_detection_grpc.fraud_detectionServicer):
     # Create an RPC function to say hello
-    def SayHello(self, request, context):
+    def fraud_detection(self, request, context):
         # Create a HelloResponse object
-        response = fraud_detection.HelloResponse()
+        response = fraud_detection.f_detectionResponse()
         # Set the greeting field of the response object
-        response.greeting = "Hello, " + request.name
+        response.fraudResult = "Hello, " + request.name
         # Print the greeting message
-        print(response.greeting)
+        print(response.fraudResult)
         # Return the response object
         return response
 
