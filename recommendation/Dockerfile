@@ -6,7 +6,7 @@ FROM python:3.11
 WORKDIR /app
 
 # Copy the requirements file to the working directory
-COPY ./Recommmendation/requirements.txt .
+COPY ./recommmendation/requirements.txt .
 
 # Install the Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
@@ -15,4 +15,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install reloadium
 
 # Set the command to run the container
-CMD reloadium run "Recommmendation/src/app.py"
+CMD reloadium run "recommmendation/src/app.py"
