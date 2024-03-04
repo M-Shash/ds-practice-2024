@@ -20,18 +20,22 @@ class fraud_detection(fraud_detection_grpc.fraud_detectionServicer):
     def fraud_detection(self, request, context):
         # Create a HelloResponse object
         response = fraud_detection.f_detectionResponse()
-        # Set the greeting field of the response object
-        response.fraudResult = "Hello, " + request.name
-        # Print the greeting message
-        print(response.fraudResult)
-        # Return the response object
+        possible_fraud_ids = [123, 456, 789]
+        if request.name and request.id:
+            for combination in possible_fraud_ids:
+                if combination in request.id :
+                    response.is_fraud = True
+                else:
+                    response.is_fraud = False
+        else:
+            response.is_fraud = True
         return response
 
 def serve():
     # Create a gRPC server
     server = grpc.server(futures.ThreadPoolExecutor())
     # Add HelloService
-    fraud_detection_grpc.add_HelloServiceServicer_to_server(HelloService(), server)
+    fraud_detection_grpc.add_fraud_detectionServicer_to_server(fraud_detection(), server)
     # Listen on port 50051
     port = "50051"
     server.add_insecure_port("[::]:" + port)

@@ -1,5 +1,10 @@
 import grpc
+import sys
+import os
 from concurrent import futures
+FILE = __file__ if '__file__' in globals() else os.getenv("PYTHONFILE", "")
+utils_path = os.path.abspath(os.path.join(FILE, '../../../utils/pb/recommendation'))
+sys.path.insert(0, utils_path)
 import recommendation_pb2 as recommendation
 import recommendation_pb2_grpc as recommendation_grpc
 

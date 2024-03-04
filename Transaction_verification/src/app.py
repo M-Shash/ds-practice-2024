@@ -1,6 +1,11 @@
 import grpc
 from concurrent import futures
 import re
+import sys
+import os
+FILE = __file__ if '__file__' in globals() else os.getenv("PYTHONFILE", "")
+utils_path = os.path.abspath(os.path.join(FILE, '../../../utils/pb/transaction_verification'))
+
 import transaction_verification_pb2 as transaction_verification
 import transaction_verification_pb2_grpc as transaction_verification_grpc
 
