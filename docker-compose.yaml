@@ -60,13 +60,13 @@ services:
       - ./utils:/app/utils
       # Mount the fraud_detection/src directory in the current directory to the /app/fraud_detection/src directory in the container
       - ./fraud_detection/src:/app/fraud_detection/src
-  Transaction_verification:
+  transaction_verification:
     build:
       # Use the current directory as the build context
       # This allows us to access the files in the current directory inside the Dockerfile
       context: ./
       # Use the Dockerfile in the Transaction_verification directorys
-      dockerfile: ./Transaction_verification/Dockerfile
+      dockerfile: ./transaction_verification/Dockerfile
     ports:
       # Expose port 50051 on the host, and map port 50051 of the container to port 50051 on the host
       - 50052:50052
@@ -81,14 +81,14 @@ services:
       # Mount the utils directory in the current directory to the /app/utils directory in the container
       - ./utils:/app/utils
       # Mount the Transaction_verification/src directory in the current directory to the /app/Transaction_verification/src directory in the container
-      - ./Transaction_verification/src:/app/Transaction_verification/src
-  Recommendation:
+      - ./transaction_verification/src:/app/transaction_verification/src
+  recommendation:
     build:
       # Use the current directory as the build context
       # This allows us to access the files in the current directory inside the Dockerfile
       context: ./
       # Use the Dockerfile in the Recommendation directorys
-      dockerfile: ./Recommendation/Dockerfile
+      dockerfile: ./recommendation/Dockerfile
     ports:
       # Expose port 50051 on the host, and map port 50051 of the container to port 50051 on the host
       - 50053:50053
@@ -103,4 +103,4 @@ services:
       # Mount the utils directory in the current directory to the /app/utils directory in the container
       - ./utils:/app/utils
       # Mount the Recommendation/src directory in the current directory to the /app/Recommendation/src directory in the container
-      - ./Recommendation/src:/app/Recommendation/src
+      - ./recommendation/src:/app/recommendation/src
