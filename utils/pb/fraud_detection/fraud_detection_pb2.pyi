@@ -9,11 +9,11 @@ class f_detectionRequest(_message.Message):
     NAME_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     name: str
-    id: int
-    def __init__(self, name: _Optional[str] = ..., id: _Optional[int] = ...) -> None: ...
+    id: str
+    def __init__(self, name: _Optional[str] = ..., id: _Optional[str] = ...) -> None: ...
 
 class f_detectionResponse(_message.Message):
-    __slots__ = ("fraudResult",)
-    FRAUDRESULT_FIELD_NUMBER: _ClassVar[int]
-    fraudResult: bool
-    def __init__(self, fraudResult: bool = ...) -> None: ...
+    __slots__ = ("is_fraud",)
+    IS_FRAUD_FIELD_NUMBER: _ClassVar[int]
+    is_fraud: bool
+    def __init__(self, is_fraud: bool = ...) -> None: ...

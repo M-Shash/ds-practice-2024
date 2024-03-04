@@ -8,9 +8,9 @@ service fraud_detection {
 
 message f_detectionRequest {
     string name = 1;
-    int32 id =2 ;
+    string id =2 ;
 }
 
 message f_detectionResponse {
-    bool fraudResult = 1;
+    bool is_fraud = 1;
 }
